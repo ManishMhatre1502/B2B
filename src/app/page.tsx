@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Activity, ArrowRight, ArrowUpRight, BarChart3, Building2, Check, CircleDollarSign, ClipboardCheck, Layers3, ShieldCheck, ArrowDown } from "lucide-react";
+import { Activity, ArrowRight, ArrowUpRight, BarChart3, Building2, Check, ClipboardCheck, Layers3, ShieldCheck, ArrowDown } from "lucide-react";
 import { LandingNavbar } from "@/components/landing-navbar";
 import { Button } from "@/components/ui/button";
 import { HeroIllustration } from "@/components/hero-illustration";
@@ -31,7 +31,13 @@ export default function HomePage() {
           <div className="relative mx-auto w-full max-w-[600px]">
             <div aria-hidden="true" className="absolute -inset-8 rounded-full bg-primary/10 blur-3xl" />
             <div className="glass-panel relative overflow-hidden rounded-[28px] p-4 sm:p-5">
-              <div className="flex items-center justify-between border-b border-border/80 px-2 pb-4"><div><p className="text-xs text-muted-foreground">Portfolio overview</p><p className="mt-1 text-sm font-semibold">Daily snapshot</p></div><div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-border bg-background/80 px-3 text-[11px] font-medium text-muted-foreground"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald" />Sample data</div></div>
+              <div className="flex items-center justify-between gap-3 border-b border-border/80 px-2 pb-4">
+                <div className="min-w-0"><p className="text-xs text-muted-foreground">Portfolio overview</p><p className="mt-1 text-sm font-semibold">Daily snapshot</p></div>
+                <div className="flex shrink-0 items-center gap-2.5 rounded-xl border border-border bg-background/70 px-2.5 py-2">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary"><Layers3 size={17} /></span>
+                  <span className="min-w-0"><span className="hidden text-[10px] text-muted-foreground sm:block">Portfolio span</span><span className="block whitespace-nowrap text-[11px] font-semibold sm:text-xs">All in one place</span></span>
+                </div>
+              </div>
               <div className="grid grid-cols-2 gap-3 py-4">
                 <div className="rounded-2xl border border-border bg-background/70 p-4"><p className="text-xs text-muted-foreground">Revenue today</p><p className="mt-2 text-2xl font-semibold tracking-tight">₹24,680</p><p className="mt-2 inline-flex items-center gap-1 text-xs text-emerald"><ArrowUpRight size={14} />12.8% <span className="text-muted-foreground">vs. last week</span></p></div>
                 <div className="rounded-2xl border border-border bg-background/70 p-4"><p className="text-xs text-muted-foreground">Daily reports</p><p className="mt-2 text-2xl font-semibold tracking-tight">3 <span className="text-base text-muted-foreground">/ 4</span></p><p className="mt-2 inline-flex items-center gap-1 text-xs text-primary"><Activity size={14} />One needs a check-in</p></div>
@@ -43,8 +49,6 @@ export default function HomePage() {
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2">{["Northstar Studio", "Field & Form", "Cedar Supply"].map((name, index) => <div key={name} className="flex min-w-0 items-center gap-2 rounded-xl border border-border bg-background/70 px-2.5 py-2.5"><span className={index === 1 ? "h-2 w-2 rounded-full bg-primary" : "h-2 w-2 rounded-full bg-emerald"} /><span className="truncate text-[10px] font-medium sm:text-xs">{name}</span></div>)}</div>
             </div>
-            <div className="absolute -right-2 top-14 hidden -translate-y-1/2 items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-xl sm:flex lg:-right-8"><div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary"><CircleDollarSign size={18} /></div><div><p className="text-[11px] text-muted-foreground">Portfolio signal</p><p className="text-sm font-semibold">All in one place</p></div></div>
-            <div className="absolute -bottom-6 left-0 hidden items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-xl sm:flex lg:-left-8"><div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald/10 text-emerald"><ShieldCheck size={18} /></div><div><p className="text-[11px] text-muted-foreground">Clear access</p><p className="text-sm font-semibold">Each team, scoped</p></div></div>
           </div>
         </section>
         <section id="platform" className="mx-auto max-w-7xl scroll-mt-28 px-5 py-20 sm:px-8 lg:py-28">
