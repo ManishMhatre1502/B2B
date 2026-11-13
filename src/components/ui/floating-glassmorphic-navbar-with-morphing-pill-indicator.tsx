@@ -43,7 +43,7 @@ const SPRING = { type: "spring", stiffness: 420, damping: 34, mass: 0.8 } as con
 function NavLinks({ items, active, hovered, layoutId, vertical = false, reduceMotion, onHover, onSelect }: NavLinksProps) {
   const highlighted = hovered ?? active;
   return (
-    <ul role="list" className={cn("flex", vertical ? "flex-col gap-1" : "items-center gap-0 lg:gap-1")}>
+    <ul role="list" className={cn("flex", vertical ? "flex-col gap-1" : "items-center gap-0 lg:gap-1 2xl:gap-2")}>
       {items.map((item) => {
         const isActive = item.href === active;
         const isHighlighted = item.href === highlighted;
@@ -58,7 +58,7 @@ function NavLinks({ items, active, hovered, layoutId, vertical = false, reduceMo
               onFocus={() => onHover(item.href)}
               onBlur={() => onHover(null)}
               className={cn(
-                "relative isolate flex min-h-10 items-center whitespace-nowrap rounded-full px-2 py-2 text-xs font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring lg:px-3 lg:text-sm",
+                "relative isolate flex min-h-10 items-center whitespace-nowrap rounded-full px-2 py-2 text-xs font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring lg:px-3 lg:text-sm 2xl:px-4 2xl:text-base",
                 vertical && "py-3",
                 isHighlighted ? "text-foreground" : "text-muted-foreground",
               )}
@@ -159,9 +159,9 @@ export function Component({
     };
   }, [open]);
 
-  const ctaClasses = "inline-flex h-10 items-center justify-center rounded-full bg-primary px-3 text-sm font-semibold text-primary-foreground shadow-sm outline-none transition-all hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[.97] lg:px-5";
+  const ctaClasses = "inline-flex h-10 items-center justify-center rounded-full bg-primary px-3 text-sm font-semibold text-primary-foreground shadow-sm outline-none transition-all hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[.97] lg:px-5 2xl:h-12 2xl:px-6 2xl:text-base";
   return (
-    <header className={cn("pointer-events-none z-50 flex justify-center px-4", POSITION[position], className)}>
+    <header className={cn("pointer-events-none z-50 flex justify-center px-4 2xl:top-[1.7rem]", POSITION[position], className)}>
       <motion.div
         ref={rootRef}
         initial={reduceMotion ? false : { y: -28, opacity: 0 }}
@@ -171,13 +171,13 @@ export function Component({
       >
         <nav
           aria-label="Main"
-          className={cn("relative mx-auto flex w-fit max-w-full min-w-0 items-center justify-between gap-1 rounded-full border border-border px-1 py-1.5 backdrop-blur-xl backdrop-saturate-150 transition-[background-color,box-shadow] duration-300 sm:gap-2 sm:px-2 sm:py-2 lg:gap-4", scrolled ? "bg-background/90 shadow-xl shadow-black/30" : "bg-background/80 shadow-lg shadow-black/20")}
+          className={cn("relative mx-auto flex w-fit max-w-full min-w-0 items-center justify-between gap-1 rounded-full border border-border px-1 py-1.5 backdrop-blur-xl backdrop-saturate-150 transition-[background-color,box-shadow] duration-300 sm:gap-2 sm:px-2 sm:py-2 lg:gap-4 2xl:gap-5 2xl:px-3 2xl:py-2.5", scrolled ? "bg-background/90 shadow-xl shadow-black/30" : "bg-background/80 shadow-lg shadow-black/20")}
         >
           <span aria-hidden="true" className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
           <a
             href={brandHref}
             aria-label={brandName}
-            className="flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-full px-1.5 py-1 outline-none transition-opacity hover:opacity-80 focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-full px-1.5 py-1 2xl:px-3 outline-none transition-opacity hover:opacity-80 focus-visible:ring-2 focus-visible:ring-ring"
           >
             {brandIcon ?? <><span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full bg-primary font-bold text-primary-foreground">{brandName.charAt(0).toUpperCase()}</span><span className="pr-2 text-sm font-semibold tracking-tight text-foreground">{brandName}</span></>}
           </a>
