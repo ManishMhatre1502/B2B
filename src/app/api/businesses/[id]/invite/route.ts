@@ -35,13 +35,13 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     const inviteUrl = origin + "/invite/accept?token=" + encodeURIComponent(token);
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const from = process.env.RESEND_FROM || "Grwolyx <onboarding@resend.dev>";
+      const from = process.env.RESEND_FROM || "Grolyx <onboarding@resend.dev>";
       const businessName = escapeHtml(business.name);
       const result = await resend.emails.send({
         from,
         to: email,
         subject: "You have been appointed to " + business.name,
-        html: "<div style='background:#08090B;padding:36px 16px;font-family:Arial,sans-serif;color:#F5F3EF'><div style='max-width:520px;margin:auto;background:#111317;border:1px solid #1F232B;border-radius:20px;padding:32px'><p style='color:#FFC900;font-weight:700;letter-spacing:2px'>GRWOLYX</p><h1 style='font-size:25px'>You're invited to lead " + businessName + "</h1><p style='color:#9CA3AF;line-height:1.7'>Accept your appointment to submit daily updates for this business. This link expires in 48 hours.</p><a href='" + inviteUrl + "' style='display:inline-block;background:#FFC900;color:#08090B;text-decoration:none;font-weight:700;border-radius:10px;padding:14px 20px;margin-top:12px'>Accept Appointment</a><p style='color:#6B7280;font-size:12px;margin-top:28px'>If you weren't expecting this invitation, you can ignore this email.</p></div></div>",
+        html: "<div style='background:#08090B;padding:36px 16px;font-family:Arial,sans-serif;color:#F5F3EF'><div style='max-width:520px;margin:auto;background:#111317;border:1px solid #1F232B;border-radius:20px;padding:32px'><p style='color:#FFC900;font-weight:700;letter-spacing:2px'>GROLYX</p><h1 style='font-size:25px'>You're invited to lead " + businessName + "</h1><p style='color:#9CA3AF;line-height:1.7'>Accept your appointment to submit daily updates for this business. This link expires in 48 hours.</p><a href='" + inviteUrl + "' style='display:inline-block;background:#FFC900;color:#08090B;text-decoration:none;font-weight:700;border-radius:10px;padding:14px 20px;margin-top:12px'>Accept Appointment</a><p style='color:#6B7280;font-size:12px;margin-top:28px'>If you weren't expecting this invitation, you can ignore this email.</p></div></div>",
       });
       if (result.error) {
         invitation.status = "revoked";

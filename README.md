@@ -1,6 +1,6 @@
-# Grwolyx
+# Grolyx
 
-Grwolyx is a multi-business daily reporting workspace for business owners and their appointed business heads.
+Grolyx is a multi-business daily reporting workspace for business owners and their appointed business heads.
 
 ## Features
 
@@ -10,7 +10,7 @@ Grwolyx is a multi-business daily reporting workspace for business owners and th
 - Business-head access scoped to assigned businesses.
 - Daily KPI submissions with date backfill, validation, notes, and upsert protection.
 - Owner overview, per-business charts, submission status, and searchable report history.
-- Dark charcoal and golden-yellow responsive interface using the supplied brand logo.
+- Dark charcoal and golden-yellow responsive interface using the supplied Grolyx brand logo.
 
 ## Local setup
 

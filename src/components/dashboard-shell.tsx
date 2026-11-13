@@ -22,7 +22,7 @@ export async function DashboardShell({
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link href={homeHref} aria-label="Grwolyx home" className="flex items-center"><Image src="/logo.png" alt="Grwolyx" width={150} height={48} className="h-9 w-[112px] object-contain" priority /></Link>
+          <Link href={homeHref} aria-label="Grolyx home" className="flex items-center"><Image src="/logo.png" alt="Grolyx" width={150} height={48} className="h-9 w-[112px] object-contain" priority /></Link>
           <div className="flex items-center gap-3 sm:gap-5"><div className="hidden text-right sm:block"><p className="text-sm font-medium">{session.user.name}</p><p className="mt-0.5 text-xs capitalize text-muted-foreground">{role === "head" ? "Business head" : "Business owner"}</p></div><div aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-sm font-semibold text-primary">{(session.user.name || "G").charAt(0).toUpperCase()}</div><form action={async () => { "use server"; await signOut({ redirectTo: "/" }); }}><button type="submit" aria-label="Sign out" title="Sign out" className="flex h-10 w-10 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><LogOut size={17} /></button></form></div>
         </div>
       </header>

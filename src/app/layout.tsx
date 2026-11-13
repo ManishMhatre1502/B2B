@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Grwolyx — Daily operations, in focus", template: "%s · Grwolyx" },
+  title: { default: "Grolyx — Daily operations, in focus", template: "%s · Grolyx" },
   description: "One clear view of every business. Daily reporting and analytics for multi-business teams.",
   icons: { icon: "/logo.png" },
 };
