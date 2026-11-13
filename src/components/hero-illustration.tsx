@@ -8,12 +8,12 @@ const businessCards = [
 
 export function HeroIllustration() {
   return (
-    <div aria-hidden="true" className="relative isolate mt-3 hidden h-[210px] w-full sm:block sm:h-[240px] lg:-mt-8 lg:h-[260px]">
+    <div aria-hidden="true" className="relative isolate mt-5 h-[288px] w-full min-w-0 sm:mt-3 sm:h-[240px] xl:mt-4 xl:h-[260px]">
       <div className="hero-art-glow absolute bottom-0 left-0 h-[56%] w-[82%] rounded-full blur-2xl" />
       <svg
         viewBox="0 0 520 250"
         preserveAspectRatio="xMidYMax meet"
-        className="absolute bottom-0 left-0 h-full w-[72%] overflow-visible drop-shadow-[0_10px_18px_rgba(0,0,0,.35)]"
+        className="absolute left-1/2 top-0 h-[190px] w-[92%] -translate-x-1/2 overflow-visible sm:bottom-0 sm:left-0 sm:top-auto sm:h-full sm:w-[72%] sm:translate-x-0 drop-shadow-[0_10px_18px_rgba(0,0,0,.35)]"
       >
         <defs>
           <linearGradient id="grolyx-laptop-screen" x1="0" x2="1" y1="0" y2="1">
@@ -45,19 +45,19 @@ export function HeroIllustration() {
         </text>
         <path d="M247 199h39" stroke="#c7b99a" strokeOpacity=".5" strokeWidth="2" strokeLinecap="round" />
       </svg>
-      <div className="absolute bottom-[24%] right-0 z-10 flex w-[48%] flex-col gap-2">
+      <div className="absolute inset-x-0 bottom-0 z-10 grid grid-cols-3 gap-2 sm:inset-x-auto sm:bottom-[24%] sm:left-auto sm:right-0 sm:flex sm:w-[48%] sm:flex-col sm:gap-2">
         {businessCards.map(({ icon: Icon, title }) => (
           <div
             key={title}
-            className="flex h-12 items-center justify-between rounded-xl border border-primary/20 bg-[#141414]/95 px-3 shadow-[0_8px_20px_rgba(0,0,0,.3)] sm:px-3.5"
+            className="flex min-h-[72px] flex-col items-center justify-center gap-1 rounded-xl border border-primary/20 bg-[#141414]/95 px-1.5 py-2 text-center shadow-[0_8px_20px_rgba(0,0,0,.3)] sm:h-12 sm:min-h-0 sm:flex-row sm:justify-between sm:gap-2 sm:px-3.5 sm:py-0 sm:text-left"
           >
-            <span className="flex min-w-0 items-center gap-2.5">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <span className="flex min-w-0 flex-col items-center gap-1 sm:flex-row sm:gap-2.5">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-8 sm:w-8">
                 <Icon size={17} strokeWidth={2} />
               </span>
-              <span className="truncate text-xs font-medium text-foreground sm:text-sm">{title}</span>
+              <span className="max-w-full truncate text-[9px] font-medium leading-tight text-foreground sm:text-sm">{title}</span>
             </span>
-            <span className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <span className="ml-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-8 sm:w-8">
               <BarChart3 size={17} strokeWidth={2.2} />
             </span>
           </div>

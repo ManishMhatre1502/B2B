@@ -13,13 +13,13 @@ const features = [
 
 export default function HomePage() {
   return (
-    <div className="overflow-hidden">
+    <div className="min-h-screen w-full">
       <LandingNavbar />
-      <main className="relative pt-20 sm:pt-24">
+      <main className="relative w-full pt-20 sm:pt-24">
         <div aria-hidden="true" className="hero-wash pointer-events-none absolute inset-x-0 top-0 -z-10 h-[780px]" />
         <div aria-hidden="true" className="grid-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-[760px] opacity-30" />
-        <section id="hero" aria-labelledby="hero-title" className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-24 pt-10 sm:px-8 sm:pt-12 lg:grid-cols-[1.08fr_.92fr] lg:items-start lg:gap-10 lg:pb-32 lg:pt-12">
-          <div className="max-w-2xl lg:max-w-[600px]">
+        <section id="hero" aria-labelledby="hero-title" className="mx-auto grid w-full max-w-[1440px] min-w-0 items-center gap-10 px-[clamp(1rem,3.5vw,3rem)] pb-16 pt-10 sm:gap-12 sm:pt-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] xl:items-start xl:gap-[clamp(2rem,4vw,3.5rem)] xl:pb-24 xl:pt-12">
+          <div className="w-full min-w-0 max-w-2xl xl:max-w-[600px]">
             <div className="mb-7 inline-flex min-h-9 items-center gap-2.5 rounded-full border border-border bg-card/80 px-3.5 py-2 text-xs font-medium text-muted-foreground shadow-sm"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_#FFC900]" />A daily operating picture for owners</div>
             <h1 id="hero-title" className="max-w-[700px] text-balance text-[clamp(3.25rem,4.5vw,5.25rem)] font-semibold leading-[.99] tracking-[-.06em] text-foreground">One clear view<br className="hidden sm:block" /><span className="text-primary"> for every business.</span></h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">Bring daily numbers, team updates, and business trends into one calm workspace—so you can spend less time chasing reports and more time moving the work forward.</p>
@@ -28,9 +28,9 @@ export default function HomePage() {
 
             <HeroIllustration />
           </div>
-          <div className="relative mx-auto w-full max-w-[600px]">
-            <div aria-hidden="true" className="absolute -inset-8 rounded-full bg-primary/10 blur-3xl" />
-            <div className="glass-panel relative overflow-hidden rounded-[28px] p-4 sm:p-5">
+          <div className="relative mx-auto w-full min-w-0 max-w-[620px] xl:mx-0 xl:ml-auto">
+            <div aria-hidden="true" className="absolute inset-y-8 left-0 right-0 rounded-full bg-primary/10 blur-3xl sm:-inset-8" />
+            <div className="glass-panel relative w-full min-w-0 overflow-hidden rounded-[28px] p-4 sm:p-5">
               <div className="flex items-center justify-between gap-3 border-b border-border/80 px-2 pb-4">
                 <div className="min-w-0"><p className="text-xs text-muted-foreground">Portfolio overview</p><p className="mt-1 text-sm font-semibold">Daily snapshot</p></div>
                 <div className="flex shrink-0 items-center gap-2.5 rounded-xl border border-border bg-background/70 px-2.5 py-2">
