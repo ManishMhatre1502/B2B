@@ -36,7 +36,7 @@ const POSITION: Record<NonNullable<ComponentProps["position"]>, string> = {
   fixed: "fixed inset-x-0 top-3 sm:top-4",
   sticky: "sticky top-3 sm:top-4",
   absolute: "absolute inset-x-0 top-3 sm:top-4",
-  static: "relative mt-3",
+  static: "relative mt-3 2xl:mt-[1.7rem]",
 };
 const SPRING = { type: "spring", stiffness: 420, damping: 34, mass: 0.8 } as const;
 
@@ -161,7 +161,7 @@ export function Component({
 
   const ctaClasses = "inline-flex h-10 items-center justify-center rounded-full bg-primary px-3 text-sm font-semibold text-primary-foreground shadow-sm outline-none transition-all hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[.97] lg:px-5 2xl:h-12 2xl:px-6 2xl:text-base";
   return (
-    <header className={cn("pointer-events-none z-50 flex justify-center px-4 2xl:top-[1.7rem]", POSITION[position], className)}>
+    <header className={cn("pointer-events-none z-50 flex justify-center px-4", POSITION[position], className)}>
       <motion.div
         ref={rootRef}
         initial={reduceMotion ? false : { y: -28, opacity: 0 }}

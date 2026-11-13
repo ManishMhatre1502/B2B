@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen w-full">
       <LandingNavbar />
-      <main className="relative w-full pt-20 sm:pt-24 2xl:pt-[4.5rem]">
+      <main className="relative w-full">
         <div aria-hidden="true" className="hero-wash pointer-events-none absolute inset-x-0 top-0 -z-10 h-[780px]" />
         <div aria-hidden="true" className="grid-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-[760px] opacity-30" />
         <section id="hero" aria-labelledby="hero-title" className="mx-auto grid w-full max-w-[1440px] min-w-0 items-center gap-10 px-[clamp(1rem,3.5vw,3rem)] pb-16 pt-10 sm:gap-12 sm:pt-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] xl:items-start xl:gap-[clamp(2rem,4vw,3.5rem)] xl:pb-24 xl:pt-12 2xl:max-w-[1680px] 2xl:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] 2xl:gap-[clamp(3rem,3.2vw,3.5rem)] 2xl:pl-[clamp(4rem,6.5vw,7rem)] 2xl:pr-[clamp(4rem,5.5vw,6.5rem)]">
