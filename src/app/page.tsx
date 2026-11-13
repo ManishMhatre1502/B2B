@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Activity, ArrowRight, ArrowUpRight, BarChart3, Building2, Check, CircleDollarSign, ClipboardCheck, Layers3, ShieldCheck, ArrowDown } from "lucide-react";
 import { LandingNavbar } from "@/components/landing-navbar";
 import { Button } from "@/components/ui/button";
+import { HeroIllustration } from "@/components/hero-illustration";
 
 const features = [
   { icon: Building2, title: "Every business, one view", copy: "Switch between your companies and see the signal across your whole portfolio." },
@@ -14,16 +15,18 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       <LandingNavbar />
-      <main className="relative pt-28 sm:pt-32">
+      <main className="relative pt-20 sm:pt-24">
         <div aria-hidden="true" className="hero-wash pointer-events-none absolute inset-x-0 top-0 -z-10 h-[780px]" />
         <div aria-hidden="true" className="grid-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-[760px] opacity-30" />
-        <section id="hero" aria-labelledby="hero-title" className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-24 pt-12 sm:px-8 lg:grid-cols-[1.08fr_.92fr] lg:gap-10 lg:pb-32 lg:pt-16">
-          <div className="max-w-2xl">
+        <section id="hero" aria-labelledby="hero-title" className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-24 pt-10 sm:px-8 sm:pt-12 lg:grid-cols-[1.08fr_.92fr] lg:items-start lg:gap-10 lg:pb-32 lg:pt-12">
+          <div className="max-w-2xl lg:max-w-[600px]">
             <div className="mb-7 inline-flex min-h-9 items-center gap-2.5 rounded-full border border-border bg-card/80 px-3.5 py-2 text-xs font-medium text-muted-foreground shadow-sm"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_#FFC900]" />A daily operating picture for owners</div>
-            <h1 id="hero-title" className="max-w-[700px] text-balance text-[clamp(3.25rem,6.5vw,5.25rem)] font-semibold leading-[.99] tracking-[-.06em] text-foreground">One clear view<br className="hidden sm:block" /><span className="text-primary"> for every business.</span></h1>
+            <h1 id="hero-title" className="max-w-[700px] text-balance text-[clamp(3.25rem,4.5vw,5.25rem)] font-semibold leading-[.99] tracking-[-.06em] text-foreground">One clear view<br className="hidden sm:block" /><span className="text-primary"> for every business.</span></h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">Bring daily numbers, team updates, and business trends into one calm workspace—so you can spend less time chasing reports and more time moving the work forward.</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row"><Link href="/register"><Button size="lg" className="w-full sm:w-auto">Create your workspace <ArrowRight size={17} /></Button></Link><Link href="#platform"><Button variant="secondary" size="lg" className="w-full sm:w-auto">Explore the platform <ArrowDown size={16} /></Button></Link></div>
             <div className="mt-9 flex flex-col gap-3 border-t border-border/80 pt-5 text-sm text-muted-foreground sm:flex-row sm:flex-wrap sm:gap-x-6"><span className="inline-flex items-center gap-2"><Check size={15} className="shrink-0 text-primary" />Metrics that fit each business</span><span className="inline-flex items-center gap-2"><ShieldCheck size={15} className="shrink-0 text-primary" />Access by invitation</span></div>
+
+            <HeroIllustration />
           </div>
           <div className="relative mx-auto w-full max-w-[600px]">
             <div aria-hidden="true" className="absolute -inset-8 rounded-full bg-primary/10 blur-3xl" />
