@@ -1,67 +1,154 @@
-import { BarChart3, Boxes, Building2, Store } from "lucide-react";
+import { ArrowUpRight, Check, LockKeyhole, TrendingUp } from "lucide-react";
 
-const businessCards = [
-  { icon: Building2, title: "Manufacturing" },
-  { icon: Store, title: "Retail" },
-  { icon: Boxes, title: "Inventory" },
+const businesses = [
+  { name: "Northstar Studio", value: "₹9,240", status: "Submitted", dot: "bg-primary", bar: "w-[82%]" },
+  { name: "Field & Form", value: "₹8,120", status: "Submitted", dot: "bg-emerald", bar: "w-[68%]" },
+  { name: "Cedar Supply", value: "₹7,320", status: "Due today", dot: "bg-white/30", bar: "w-[46%]" },
 ];
 
 export function HeroIllustration() {
   return (
-    <div aria-hidden="true" className="relative isolate mt-5 h-[288px] w-full min-w-0 sm:mt-3 sm:h-[240px] xl:mt-4 xl:h-[260px] 2xl:-mt-4 2xl:h-[300px]">
-      <div className="hero-art-glow absolute bottom-0 left-0 h-[56%] w-[82%] rounded-full blur-2xl" />
-      <svg
-        viewBox="0 0 520 250"
-        preserveAspectRatio="xMidYMax meet"
-        className="absolute left-1/2 top-0 h-[190px] w-[92%] -translate-x-1/2 overflow-visible sm:bottom-0 sm:left-0 sm:top-auto sm:h-full sm:w-[72%] sm:translate-x-0 2xl:translate-x-11 2xl:-translate-y-6 [@media(min-width:1280px)_and_(max-height:820px)]:-translate-y-11 drop-shadow-[0_10px_18px_rgba(0,0,0,.35)]"
-      >
-        <defs>
-          <linearGradient id="grolyx-laptop-screen" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0" stopColor="#383532" />
-            <stop offset=".52" stopColor="#151515" />
-            <stop offset="1" stopColor="#080909" />
-          </linearGradient>
-          <linearGradient id="grolyx-laptop-base" x1="0" x2=".8" y1="0" y2="1">
-            <stop offset="0" stopColor="#a39a8b" />
-            <stop offset=".16" stopColor="#343332" />
-            <stop offset=".62" stopColor="#181818" />
-            <stop offset="1" stopColor="#090909" />
-          </linearGradient>
-          <linearGradient id="grolyx-laptop-edge" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0" stopColor="#ffc900" stopOpacity="0" />
-            <stop offset=".5" stopColor="#ffc900" stopOpacity=".62" />
-            <stop offset="1" stopColor="#ffc900" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <ellipse cx="270" cy="231" rx="205" ry="12" fill="#000" opacity=".5" transform="matrix(1.31 0 0 1 -46 0)" />
-        <path d="M73 22 323 16 374 183 120 197Z" fill="#090909" stroke="#8a8379" strokeWidth="2" />
-        <path d="M87 32 313 27 359 172 132 184Z" fill="url(#grolyx-laptop-screen)" stroke="#2d2b28" strokeWidth="2" />
-        <path d="M87 32 313 27 359 172 132 184Z" fill="none" stroke="url(#grolyx-laptop-edge)" strokeWidth="1.2" opacity=".55" />
-        <path d="M120 197 374 183 467 211 179 241 91 211Z" fill="url(#grolyx-laptop-base)" stroke="#746d61" strokeWidth="1.4" transform="matrix(1.31 0 0 1 -46 0)" />
-        <path d="m178 198 156-8 43 13-174 14Z" fill="#0c0c0c" stroke="#58534b" strokeWidth="1" transform="matrix(1.31 0 0 1 -46 0)" />
-        <path d="m91 211 88 30 288-30" fill="none" stroke="#c7b99a" strokeOpacity=".22" strokeWidth="1.4" transform="matrix(1.31 0 0 1 -46 0)" />
-        <text x="224" y="118" textAnchor="middle" fontFamily="Inter, Arial, sans-serif" fontSize="23" fontWeight="800" letterSpacing="-1.2" fill="#f5f2e9">
-          GROLY<tspan fill="#ffc900">X</tspan>
-        </text>
-        <path d="M247 199h39" stroke="#c7b99a" strokeOpacity=".5" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-      <div className="absolute inset-x-0 bottom-0 z-10 grid grid-cols-3 gap-2 sm:inset-x-auto sm:bottom-[24%] sm:left-auto sm:right-0 sm:flex sm:w-[48%] sm:flex-col sm:gap-2 2xl:bottom-[22%] 2xl:w-[40%] 2xl:gap-3">
-        {businessCards.map(({ icon: Icon, title }) => (
-          <div
-            key={title}
-            className="flex min-h-[72px] flex-col items-center justify-center gap-1 rounded-xl border border-primary/20 bg-[#141414]/95 px-1.5 py-2 text-center shadow-[0_8px_20px_rgba(0,0,0,.3)] sm:h-12 sm:min-h-0 sm:flex-row sm:justify-between sm:gap-2 sm:px-3.5 sm:py-0 sm:text-left 2xl:h-[76px] 2xl:px-4"
-          >
-            <span className="flex min-w-0 flex-col items-center gap-1 sm:flex-row sm:gap-2.5">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-8 sm:w-8 2xl:h-10 2xl:w-10">
-                <Icon size={17} strokeWidth={2} />
-              </span>
-              <span className="max-w-full truncate text-[9px] font-medium leading-tight text-foreground sm:text-sm 2xl:text-base">{title}</span>
-            </span>
-            <span className="ml-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-8 sm:w-8 2xl:h-10 2xl:w-10">
-              <BarChart3 size={17} strokeWidth={2.2} className="2xl:h-5 2xl:w-5" />
-            </span>
+    <div aria-hidden="true" className="relative mx-auto w-full min-w-0 max-w-[560px] lg:mx-0 lg:ml-auto lg:max-w-none">
+      <div className="absolute -inset-8 -z-10 rounded-[48px] bg-[radial-gradient(circle_at_35%_20%,rgba(255,201,0,0.16),transparent_58%)] blur-2xl" />
+      <div className="absolute inset-x-10 -bottom-6 -z-10 h-24 rounded-full bg-primary/20 blur-3xl" />
+      <div className="absolute -inset-px -z-10 rounded-[27px] bg-[conic-gradient(from_140deg_at_50%_50%,rgba(255,201,0,0.55),transparent_25%,transparent_70%,rgba(255,201,0,0.28))] opacity-50 blur-[3px]" />
+
+      <div className="relative rounded-[26px] border border-white/10 bg-gradient-to-b from-white/[0.09] via-white/[0.03] to-transparent p-1.5 shadow-[0_40px_120px_-24px_rgba(0,0,0,0.9)] transition-transform duration-500 hover:-translate-y-1">
+        <div className="relative overflow-hidden rounded-[20px] border border-white/[0.06] bg-[#0a0c0f]">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(ellipse_at_top,rgba(255,201,0,0.08),transparent_70%)]" />
+          <div className="relative flex items-center gap-3 border-b border-white/[0.06] bg-white/[0.02] px-4 py-3">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-white/15" />
+              <span className="h-2 w-2 rounded-full bg-white/15" />
+              <span className="h-2 w-2 rounded-full bg-white/15" />
+            </div>
+            <div className="mx-auto flex items-center gap-2 rounded-md border border-white/[0.06] bg-black/40 px-2.5 py-1 text-[10px] text-muted-foreground">
+              <LockKeyhole size={10} />
+              app.grolyx.com
+            </div>
+            <span className="rounded-md bg-primary/10 px-2 py-1 text-[10px] font-semibold text-primary">Live</span>
           </div>
-        ))}
+
+          <div className="relative space-y-3 p-4 sm:p-5">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Portfolio overview</p>
+                <p className="mt-1 text-sm font-semibold text-foreground sm:text-base">Daily snapshot</p>
+              </div>
+              <div className="flex items-center gap-2 rounded-lg border border-white/[0.07] bg-white/[0.03] px-2.5 py-1.5 text-[11px] text-muted-foreground">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald opacity-70" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald" />
+                </span>
+                Synced
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              <div className="rounded-xl border border-white/[0.07] bg-white/[0.03] p-3.5">
+                <p className="text-[11px] text-muted-foreground">Revenue today</p>
+                <p className="mt-1.5 text-xl font-semibold tracking-tight sm:text-2xl">₹24,680</p>
+                <p className="mt-1.5 inline-flex items-center gap-1 text-[11px] text-emerald">
+                  <ArrowUpRight size={12} />
+                  12.8%
+                  <span className="text-muted-foreground">vs. last week</span>
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/[0.07] bg-white/[0.03] p-3.5">
+                <p className="text-[11px] text-muted-foreground">Daily reports</p>
+                <p className="mt-1.5 text-xl font-semibold tracking-tight sm:text-2xl">
+                  3 <span className="text-sm font-normal text-muted-foreground">/ 4</span>
+                </p>
+                <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-primary/70 to-primary" />
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-white/[0.07] bg-white/[0.03] p-3.5">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-medium text-foreground">Daily revenue</p>
+                  <p className="mt-0.5 text-[10px] text-muted-foreground">Across all businesses · 7 days</p>
+                </div>
+                <span className="rounded-md border border-white/[0.07] bg-black/30 px-2 py-1 text-[10px] text-muted-foreground">This week</span>
+              </div>
+              <div className="relative mt-3 h-24 sm:h-28">
+                <div className="absolute inset-0 flex flex-col justify-between">
+                  {[0, 1, 2, 3].map((line) => (
+                    <div key={line} className="border-t border-white/[0.05]" />
+                  ))}
+                </div>
+                <svg viewBox="0 0 520 125" className="relative h-full w-full overflow-visible" role="img" aria-label="Sample seven-day revenue trend">
+                  <defs>
+                    <linearGradient id="hero-chart-fill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stopColor="#FFC900" stopOpacity="0.28" />
+                      <stop offset="100%" stopColor="#FFC900" stopOpacity="0" />
+                    </linearGradient>
+                    <linearGradient id="hero-chart-line" x1="0" x2="1" y1="0" y2="0">
+                      <stop offset="0%" stopColor="#FFC900" stopOpacity="0.35" />
+                      <stop offset="55%" stopColor="#FFC900" />
+                      <stop offset="100%" stopColor="#FFE27A" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 98 C42 91 45 73 88 81 S141 87 172 59 S222 70 257 49 S305 59 342 38 S398 45 425 24 S478 37 520 7 V125 H0Z" fill="url(#hero-chart-fill)" />
+                  <path d="M0 98 C42 91 45 73 88 81 S141 87 172 59 S222 70 257 49 S305 59 342 38 S398 45 425 24 S478 37 520 7" fill="none" stroke="url(#hero-chart-line)" strokeWidth="2.5" strokeLinecap="round" />
+                  <circle cx="425" cy="24" r="4" fill="#FFC900" stroke="#0a0c0f" strokeWidth="3" />
+                </svg>
+              </div>
+              <div className="mt-2 flex justify-between text-[9px] uppercase tracking-wide text-muted-foreground">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              {businesses.map(({ name, value, status, dot, bar }) => (
+                <div key={name} className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5">
+                  <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${dot}`} />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="truncate text-xs font-medium text-foreground">{name}</p>
+                      <p className="shrink-0 text-xs font-semibold text-foreground">{value}</p>
+                    </div>
+                    <div className="mt-1.5 flex items-center gap-2">
+                      <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/[0.07]">
+                        <div className={`h-full rounded-full bg-gradient-to-r from-primary/50 to-primary ${bar}`} />
+                      </div>
+                      <span className="shrink-0 text-[10px] text-muted-foreground">{status}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="animate-float-slow absolute -right-3 top-20 hidden w-[188px] rounded-2xl border border-white/10 bg-[#0d0f13]/95 p-3 shadow-[0_24px_60px_-16px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:block lg:-right-6">
+        <div className="flex items-center gap-2.5">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald/15 text-emerald">
+            <Check size={15} strokeWidth={2.6} />
+          </span>
+          <div>
+            <p className="text-xs font-semibold">Report submitted</p>
+            <p className="mt-0.5 text-[10px] text-muted-foreground">Field &amp; Form · just now</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="animate-float-slow absolute -left-4 bottom-24 hidden w-[176px] rounded-2xl border border-white/10 bg-[#0d0f13]/95 p-3 shadow-[0_24px_60px_-16px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:block lg:-left-8" style={{ animationDelay: "1.2s" }}>
+        <div className="flex items-center justify-between">
+          <p className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground">This week</p>
+          <TrendingUp size={13} className="text-primary" />
+        </div>
+        <p className="mt-2 text-lg font-semibold tracking-tight">+18.4%</p>
+        <p className="text-[10px] text-muted-foreground">Revenue across portfolio</p>
       </div>
     </div>
   );

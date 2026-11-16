@@ -27,37 +27,76 @@
 html { width: 100%; scroll-behavior: smooth; }
 body {
   min-height: 100vh;
-  background: hsl(var(--background));
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(255, 201, 0, .045), transparent 60%),
+    hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-geist), Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "cv11", "ss01";
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 ::selection { background: rgba(255, 201, 0, .24); color: #fff; }
 a, button { touch-action: manipulation; }
 button:disabled { cursor: not-allowed; opacity: .55; }
 
-.grid-glow {
-  background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: linear-gradient(to bottom, black, transparent 85%);
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: #2b2f36; border: 2px solid hsl(var(--background)); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3f48; }
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, black 20%, transparent 78%);
 }
 .hero-wash {
   background:
-    radial-gradient(ellipse at 78% 34%, rgba(255, 201, 0, .11), transparent 40%),
-    radial-gradient(ellipse at 20% 0%, rgba(255, 201, 0, .07), transparent 43%);
-}
-.hero-art-glow {
-  background: radial-gradient(ellipse at 48% 65%, rgba(255, 196, 0, .28), rgba(255, 196, 0, .08) 42%, transparent 74%);
-}
-.glass-panel {
-  background: rgba(17, 19, 23, .76);
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 24px 80px rgba(0,0,0,.32);
-  backdrop-filter: blur(18px);
+    radial-gradient(ellipse at 72% 28%, rgba(255, 201, 0, .12), transparent 45%),
+    radial-gradient(ellipse at 15% 0%, rgba(255, 201, 0, .07), transparent 48%);
 }
 .soft-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
 .soft-scrollbar::-webkit-scrollbar-thumb { background: #30343c; border-radius: 99px; }
+
+.btn-gold {
+  background-image: linear-gradient(180deg, #ffdf62 0%, #ffc900 52%, #eeb700 100%);
+  box-shadow:
+    0 14px 40px -10px rgba(255, 201, 0, .55),
+    inset 0 1px 0 rgba(255, 255, 255, .38);
+}
+.btn-gold:hover { filter: brightness(1.05); }
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: .022;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up .7s cubic-bezier(.22, 1, .36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

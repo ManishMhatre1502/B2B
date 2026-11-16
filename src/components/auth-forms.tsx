@@ -73,15 +73,19 @@ export function AuthPageFrame({ children, eyebrow, title, description }: { child
   return (
     <main className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 py-10">
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,201,0,.11),transparent_48%)]" />
-      <div className="relative grid w-full max-w-5xl overflow-hidden rounded-[28px] border border-border bg-card shadow-2xl shadow-black/40 md:grid-cols-[.9fr_1.1fr]">
-        <div className="hidden min-h-[620px] flex-col justify-between bg-[linear-gradient(150deg,rgba(255,201,0,.12),transparent_45%),#0D0F12] p-10 md:flex">
-          <Link href="/" className="inline-flex w-fit items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><Image src="/logo.png" alt="Grolyx" width={166} height={52} className="h-11 w-[132px] object-contain" priority /></Link>
-          <div><p className="text-xs font-semibold uppercase tracking-[.2em] text-primary">Daily operations, in focus</p><h2 className="mt-4 text-3xl font-semibold leading-tight">Make every business easier to run.</h2><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">A consistent daily picture for the people leading the work and the people seeing the whole portfolio.</p></div>
-          <p className="text-xs text-muted-foreground">One workspace. A clearer next move.</p>
+      <div aria-hidden="true" className="absolute inset-0 hero-grid opacity-25" />
+      <div className="relative grid w-full max-w-5xl overflow-hidden rounded-[28px] border border-white/10 bg-card/90 shadow-[0_40px_120px_-24px_rgba(0,0,0,0.9)] backdrop-blur-xl md:grid-cols-[.9fr_1.1fr]">
+        <div className="relative hidden min-h-[620px] flex-col justify-between overflow-hidden bg-[linear-gradient(150deg,rgba(255,201,0,.12),transparent_45%),#0D0F12] p-10 md:flex">
+          <div aria-hidden="true" className="absolute -left-20 bottom-10 h-64 w-64 rounded-full bg-primary/10 blur-[90px]" />
+          <Link href="/" className="relative inline-flex w-fit items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><Image src="/logo.png" alt="Grolyx" width={166} height={52} className="h-11 w-[132px] object-contain" priority /></Link>
+          <div className="relative"><p className="text-xs font-semibold uppercase tracking-[.2em] text-primary">Daily operations, in focus</p><h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.02em]">Make every business easier to run.</h2><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">A consistent daily picture for the people leading the work and the people seeing the whole portfolio.</p></div>
+          <p className="relative text-xs text-muted-foreground">One workspace. A clearer next move.</p>
         </div>
         <div className="p-6 sm:p-10 md:p-12">
-          <Link href="/" className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft size={15} /> Back to Grolyx</Link>
-          <p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">{eyebrow}</p><h1 className="mt-3 text-3xl font-semibold tracking-tight">{title}</h1><p className="mt-3 mb-8 leading-6 text-muted-foreground">{description}</p>{children}
+          <Link href="/" className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"><ArrowLeft size={15} /> Back to Grolyx</Link>
+          <p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">{eyebrow}</p>
+          <h1 className="mt-3 text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">{title}</h1>
+          <p className="mt-3 mb-8 leading-6 text-muted-foreground">{description}</p>{children}
         </div>
       </div>
     </main>
