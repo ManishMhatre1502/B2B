@@ -33,15 +33,15 @@ const features = [
 
 const steps = [
   { icon: Layers3, title: "Set up a business", text: "Bring in the context and the metrics that matter." },
-  { icon: ShieldCheck, title: "Appoint a team lead", text: "Give each head access only to their business." },
+  { icon: ShieldCheck, title: "Appoint a plant head", text: "Give each trusted lead access to the business they run." },
   { icon: ClipboardCheck, title: "Capture the day", text: "Submit numbers and notes in a few minutes." },
   { icon: BarChart3, title: "Spot the pattern", text: "Use a shared view to follow up with confidence." },
 ];
 
 const assurances = [
-  { label: "One workspace", copy: "Every business under one roof" },
-  { label: "Daily cadence", copy: "Numbers captured in minutes" },
-  { label: "Invite-only", copy: "The right people, right access" },
+  { label: "Add a business", copy: "Bring each company into one portfolio" },
+  { label: "Assign a plant head", copy: "Put a trusted lead in charge" },
+  { label: "See daily updates", copy: "Stay close without chasing teams" },
 ];
 
 const securityPoints = [
@@ -85,15 +85,15 @@ export default function HomePage() {
                 style={{ animationDelay: "60ms" }}
                 className="animate-fade-up mt-6 text-balance text-[clamp(2.6rem,4.9vw,4rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-foreground sm:mt-7"
               >
-                Every Business You Own.
+                You Own the Portfolio.
                 <span className="block bg-gradient-to-r from-[#ffe9a3] via-primary to-[#e8b900] bg-clip-text text-transparent">
-                  One Place to Manage.
+                  Plant Heads Run the Day.
                 </span>
               </h1>
 
               <p style={{ animationDelay: "120ms" }} className="animate-fade-up mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-                Manage all your businesses from one private workspace. Keep business information organized, maintain
-                daily records, and get a clearer view of everything you own — all from one account.
+                Add a business, assign its plant head, and see daily updates come together in one owner’s workspace.
+                Each team gets a clear lead; you keep every business in view.
               </p>
 
               <div style={{ animationDelay: "180ms" }} className="animate-fade-up mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
@@ -108,7 +108,7 @@ export default function HomePage() {
                   href="#platform"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-6 text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-white/20 hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  Explore the platform
+                  See how it works
                 </Link>
               </div>
 
