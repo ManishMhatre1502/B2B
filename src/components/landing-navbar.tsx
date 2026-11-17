@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { label: "Platform", href: "#platform" },
   { label: "How it works", href: "#how-it-works" },
-  { label: "Security", href: "#security" },
+  { label: "Pricing", href: "#pricing" },
 ];
 
 export function LandingNavbar() {
@@ -74,7 +74,7 @@ export function LandingNavbar() {
           aria-label="Grolyx home"
           className="flex shrink-0 items-center rounded-md transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <Image src="/logo.png" alt="Grolyx" width={124} height={40} priority className="h-8 w-auto object-contain lg:h-9" />
+          <Image src="/grolyx-mark.png" alt="Grolyx" width={64} height={48} priority className="h-10 w-[54px] object-contain lg:h-11 lg:w-[58px]" />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">

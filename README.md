@@ -30,3 +30,7 @@ Grolyx is a multi-business daily reporting workspace for business owners and the
 | RESEND_FROM | Verified sender address |
 
 All protected API routes resolve the session and query ownership or business-head membership from MongoDB. Client-provided business IDs are never sufficient for access.
+
+## Admin dashboard
+
+Register an account, then add its email to ADMIN_EMAILS in Vercel (and redeploy) to allow Admin sign-in at /login. The server checks this allowlist on sign-in and on /admin. Subscription, activity, and account suspension fields are placeholders until those backend features are added.

@@ -11,9 +11,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
-export function LoginForm({ callbackUrl, defaultRole = "owner" }: { callbackUrl?: string; defaultRole?: "owner" | "head" }) {
+export function LoginForm({ callbackUrl, defaultRole = "owner" }: { callbackUrl?: string; defaultRole?: "owner" | "head" | "admin" }) {
   const router = useRouter();
-  const [roleContext, setRoleContext] = useState<"owner" | "head">(defaultRole);
+  const [roleContext, setRoleContext] = useState<"owner" | "head" | "admin">(defaultRole);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   async function submit(event: React.FormEvent<HTMLFormElement>) {
@@ -24,12 +24,12 @@ export function LoginForm({ callbackUrl, defaultRole = "owner" }: { callbackUrl?
     const result = await signIn("credentials", { email: String(data.get("email") || ""), password: String(data.get("password") || ""), roleContext, redirect: false });
     if (result?.error) { setError("Those sign-in details did not match an account with that role."); setLoading(false); return; }
     const safeCallback = callbackUrl?.startsWith("/") && !callbackUrl.startsWith("//") ? callbackUrl : "";
-    router.push(safeCallback || (roleContext === "head" ? "/head/dashboard" : "/dashboard"));
+    router.push(safeCallback || (roleContext === "head" ? "/head/dashboard" : roleContext === "admin" ? "/admin" : "/dashboard"));
     router.refresh();
   }
   return (
     <form onSubmit={submit} className="space-y-5">
-      <div><Label htmlFor="roleContext">Sign in as</Label><div className="grid grid-cols-2 gap-2 rounded-xl border border-border bg-background p-1">{(["owner", "head"] as const).map((role) => <button key={role} type="button" onClick={() => setRoleContext(role)} aria-pressed={roleContext === role} className={cn("min-h-10 rounded-lg text-sm font-medium capitalize transition-colors", roleContext === role ? "bg-accent text-foreground" : "text-muted-foreground hover:text-foreground")}>{role === "head" ? "Business head" : "Owner"}</button>)}</div></div>
+      <div><Label htmlFor="roleContext">Sign in as</Label><div className="grid grid-cols-3 gap-1 rounded-xl border border-border bg-background p-1">{(["owner", "head", "admin"] as const).map((role) => <button key={role} type="button" onClick={() => setRoleContext(role)} aria-pressed={roleContext === role} className={cn("min-h-10 rounded-lg px-1 text-xs font-medium transition-colors sm:text-sm", roleContext === role ? "bg-accent text-foreground" : "text-muted-foreground hover:text-foreground")}>{role === "head" ? "Business head" : role === "admin" ? "Admin" : "Owner"}</button>)}</div>{roleContext === "admin" && <p className="mt-2 text-xs text-muted-foreground">Restricted to authorized email addresses.</p>}</div>
       <div><Label htmlFor="email">Email address</Label><Input id="email" name="email" type="email" autoComplete="email" placeholder="you@company.com" required /></div>
       <div><Label htmlFor="password">Password</Label><Input id="password" name="password" type="password" autoComplete="current-password" placeholder="Enter your password" required /></div>
       {error && <p role="alert" className="rounded-xl border border-coral/30 bg-coral/10 px-3 py-2.5 text-sm text-coral">{error}</p>}
@@ -77,7 +77,7 @@ export function AuthPageFrame({ children, eyebrow, title, description }: { child
       <div className="relative grid w-full max-w-5xl overflow-hidden rounded-[28px] border border-white/10 bg-card/90 shadow-[0_40px_120px_-24px_rgba(0,0,0,0.9)] backdrop-blur-xl md:grid-cols-[.9fr_1.1fr]">
         <div className="relative hidden min-h-[620px] flex-col justify-between overflow-hidden bg-[linear-gradient(150deg,rgba(255,201,0,.12),transparent_45%),#0D0F12] p-10 md:flex">
           <div aria-hidden="true" className="absolute -left-20 bottom-10 h-64 w-64 rounded-full bg-primary/10 blur-[90px]" />
-          <Link href="/" className="relative inline-flex w-fit items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><Image src="/logo.png" alt="Grolyx" width={166} height={52} className="h-11 w-[132px] object-contain" priority /></Link>
+          <Link href="/" className="relative inline-flex w-fit items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><Image src="/grolyx-mark.png" alt="Grolyx" width={64} height={48} className="h-12 w-[64px] object-contain" priority /></Link>
           <div className="relative"><p className="text-xs font-semibold uppercase tracking-[.2em] text-primary">Daily operations, in focus</p><h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.02em]">Make every business easier to run.</h2><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">A consistent daily picture for the people leading the work and the people seeing the whole portfolio.</p></div>
           <p className="relative text-xs text-muted-foreground">One workspace. A clearer next move.</p>
         </div>

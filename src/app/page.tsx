@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
+  ArrowUpRight,
   BarChart3,
   Building2,
   Check,
@@ -71,12 +72,12 @@ export default function HomePage() {
 
           <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-16 pt-12 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14 lg:pb-24 lg:pt-20">
             <div className="flex min-w-0 flex-col items-start">
-              <div className="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
+              <div className="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[.08em] text-primary backdrop-blur">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
                 </span>
-                A daily operating picture for owners
+                Your businesses. Your control.
               </div>
 
               <h1
@@ -84,15 +85,15 @@ export default function HomePage() {
                 style={{ animationDelay: "60ms" }}
                 className="animate-fade-up mt-6 text-balance text-[clamp(2.6rem,4.9vw,4rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-foreground sm:mt-7"
               >
-                One clear view
+                Every Business You Own.
                 <span className="block bg-gradient-to-r from-[#ffe9a3] via-primary to-[#e8b900] bg-clip-text text-transparent">
-                  of every business.
+                  One Place to Manage.
                 </span>
               </h1>
 
               <p style={{ animationDelay: "120ms" }} className="animate-fade-up mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-                Bring daily numbers, team updates, and business trends into one calm workspace—so you spend less time
-                chasing reports and more time moving the work forward.
+                Manage all your businesses from one private workspace. Keep business information organized, maintain
+                daily records, and get a clearer view of everything you own — all from one account.
               </p>
 
               <div style={{ animationDelay: "180ms" }} className="animate-fade-up mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
@@ -262,24 +263,34 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        <section id="pricing" className="scroll-mt-28 border-y border-white/[0.06] bg-white/[0.015]">
+          <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+            <div className="mx-auto max-w-2xl text-center"><Eyebrow>Straightforward plans</Eyebrow><h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-4xl lg:text-5xl">Room for every portfolio.</h2><p className="mt-4 text-base leading-7 text-muted-foreground">Choose the number of businesses that fits how you work today.</p></div>
+            <div className="mt-10 grid items-stretch gap-4 lg:grid-cols-3">
+              {[
+                { name: "GROLYX Free", price: "₹0", cadence: "forever", features: ["1 business", "1 owner account", "Private business workspace"], cta: "Get Started", badge: "" },
+                { name: "GROLYX Growth", price: "₹999", cadence: "/ month", features: ["Up to 3 businesses", "1 owner account", "Private workspaces", "Core business features"], cta: "Choose Growth", badge: "Most popular" },
+                { name: "GROLYX Portfolio", price: "₹1,499", cadence: "/ month", features: ["Up to 5 businesses", "1 owner account", "Private workspaces", "Core business features"], cta: "Choose Portfolio", badge: "Best value" },
+              ].map((plan) => <article key={plan.name} className={`relative flex flex-col rounded-3xl border bg-background/60 p-6 sm:p-7 ${plan.badge === "Most popular" ? "border-primary/60 shadow-[0_0_40px_rgba(255,201,0,0.1)]" : "border-white/10"}`}>
+                {plan.badge && <span className="absolute -top-3 left-6 rounded-full border border-primary/30 bg-background px-3 py-1 text-[10px] font-bold uppercase tracking-[.14em] text-primary">{plan.badge}</span>}
+                <h3 className="text-lg font-semibold">{plan.name}</h3><p className="mt-6 flex items-baseline gap-2"><span className="text-4xl font-semibold tracking-tight">{plan.price}</span><span className="text-sm text-muted-foreground">{plan.cadence}</span></p>
+                <ul className="mt-6 flex-1 space-y-3 border-t border-white/10 pt-6">{plan.features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm"><Check size={16} className="shrink-0 text-primary" />{feature}</li>)}</ul>
+                <Link href={`/register?plan=${plan.name.replace("GROLYX ", "").toLowerCase()}`} className={`mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition hover:-translate-y-0.5 ${plan.badge === "Most popular" ? "btn-gold text-primary-foreground" : "border border-white/10 bg-white/[0.04] text-foreground hover:bg-white/[0.08]"}`}>{plan.cta}<ArrowRight size={16} /></Link>
+              </article>)}
+            </div>
+            <p className="mt-5 text-center text-xs text-muted-foreground">Plan selection is for reference; subscription billing is not connected yet.</p>
+          </div>
+        </section>
       </main>
 
-      <footer className="border-t border-white/[0.06]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3">
-            <Image src="/logo.png" alt="Grolyx logo" width={128} height={40} className="h-8 w-24 object-contain" />
-            <span className="text-xs text-muted-foreground">Daily operations, in focus.</span>
-          </div>
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Grolyx. Built for the way you work.</p>
-          <div className="flex gap-5 text-sm text-muted-foreground">
-            <Link href="/login" className="transition-colors hover:text-foreground">
-              Sign in
-            </Link>
-            <Link href="/register" className="transition-colors hover:text-foreground">
-              Get started
-            </Link>
-          </div>
+      <footer className="border-t border-white/[0.06] bg-white/[0.015]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-8 lg:py-16">
+          <div><Image src="/grolyx-mark.png" alt="Grolyx" width={64} height={48} className="h-12 w-16 object-contain" /><p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground">Your businesses. Your control. One private workspace for the work you own.</p></div>
+          <div><h2 className="text-sm font-semibold">Explore</h2><ul className="mt-4 space-y-3 text-sm text-muted-foreground"><li><Link href="#platform" className="hover:text-foreground">Platform</Link></li><li><Link href="#how-it-works" className="hover:text-foreground">How it works</Link></li><li><Link href="#pricing" className="hover:text-foreground">Pricing</Link></li></ul></div>
+          <div><h2 className="text-sm font-semibold">Account &amp; legal</h2><ul className="mt-4 space-y-3 text-sm text-muted-foreground"><li><Link href="/login" className="hover:text-foreground">Sign in</Link></li><li><Link href="/register" className="hover:text-foreground">Create account</Link></li><li><Link href="/privacy" className="hover:text-foreground">Privacy</Link></li><li><Link href="/terms" className="hover:text-foreground">Terms</Link></li></ul></div>
+          <div><h2 className="text-sm font-semibold">Contact us</h2><p className="mt-4 text-sm leading-6 text-muted-foreground">Questions about your workspace or getting started?</p><a href="mailto:support@grolyx.com" className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">support@grolyx.com <ArrowUpRight size={14} /></a></div>
         </div>
+        <div className="border-t border-white/[0.06]"><div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-muted-foreground sm:px-8 md:flex-row md:justify-between"><p>© {new Date().getFullYear()} Grolyx. Built for the way you work.</p><p>Private workspaces for every business you own.</p></div></div>
       </footer>
     </div>
   );

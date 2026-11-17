@@ -17,11 +17,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       async authorize(credentials) {
         const email = String(credentials?.email ?? "").trim().toLowerCase();
         const password = String(credentials?.password ?? "");
-        const roleContext = credentials?.roleContext === "head" ? "head" : "owner";
+        const requestedRole = credentials?.roleContext;
+        const roleContext = requestedRole === "head" || requestedRole === "admin" ? requestedRole : "owner";
         if (!email || !password) return null;
         await dbConnect();
         const user = await User.findOne({ email }).select("+passwordHash");
-        if (!user || !user.roles.includes(roleContext)) return null;
+        if (!user) return null;
+        if (roleContext === "admin") {
+          const adminEmails = (process.env.ADMIN_EMAILS || "").split(",").map((value) => value.trim().toLowerCase()).filter(Boolean);
+          if (!adminEmails.includes(email)) return null;
+        } else if (!user.roles.includes(roleContext)) return null;
         if (!(await bcrypt.compare(password, user.passwordHash))) return null;
         return {
           id: user._id.toString(),
@@ -40,7 +45,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     session({ session, token }) {
       if (session.user && token.sub) {
         session.user.id = token.sub;
-        session.user.roleContext = token.roleContext === "head" ? "head" : "owner";
+        session.user.roleContext = token.roleContext === "admin" ? "admin" : token.roleContext === "head" ? "head" : "owner";
       }
       return session;
     },

@@ -11,7 +11,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: { default: "Grolyx — Daily operations, in focus", template: "%s · Grolyx" },
   description: "One clear view of every business. Daily reporting and analytics for multi-business teams.",
-  icons: { icon: "/logo.png" },
+  icons: { icon: "/grolyx-mark.png" },
 };
 
 export const viewport: Viewport = {
