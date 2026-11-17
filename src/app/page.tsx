@@ -154,13 +154,14 @@ export default function HomePage() {
 
       <footer className="border-t border-white/[0.06] bg-white/[0.015]">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-8 lg:py-16">
-          <div><Image src="/logo.png" alt="Grolyx" width={1600} height={533} className="h-10 w-[120px] object-contain" /><p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground">Your businesses. Your control. One private workspace for the work you own.</p></div>
+          <div><Image src="/logo.png" alt="Grolyx" width={1600} height={533} className="h-10 w-[120px] object-contain" /><p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground">Built for business owners and the teams they trust.</p></div>
           <div><h2 className="text-sm font-semibold">Explore</h2><ul className="mt-4 space-y-1 text-sm text-muted-foreground"><li><Link href="#hero" className="inline-flex min-h-11 items-center hover:text-foreground">Portfolio overview</Link></li><li><Link href="#security" className="inline-flex min-h-11 items-center hover:text-foreground">Security</Link></li><li><Link href="#pricing" className="inline-flex min-h-11 items-center hover:text-foreground">Pricing</Link></li></ul></div>
           <div><h2 className="text-sm font-semibold">Account &amp; legal</h2><ul className="mt-4 space-y-1 text-sm text-muted-foreground"><li><Link href="/login" className="inline-flex min-h-11 items-center hover:text-foreground">Sign in</Link></li><li><Link href="/register" className="inline-flex min-h-11 items-center hover:text-foreground">Create account</Link></li><li><Link href="/privacy" className="inline-flex min-h-11 items-center hover:text-foreground">Privacy</Link></li><li><Link href="/terms" className="inline-flex min-h-11 items-center hover:text-foreground">Terms</Link></li></ul></div>
           <div><h2 className="text-sm font-semibold">Contact us</h2><p className="mt-4 text-sm leading-6 text-muted-foreground">Questions about your workspace or getting started?</p><a href="mailto:support@grolyx.com" className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">support@grolyx.com <ArrowUpRight size={14} /></a></div>
         </div>
-        <div className="border-t border-white/[0.06]"><div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-muted-foreground sm:px-8 md:flex-row md:justify-between"><p>© {new Date().getFullYear()} Grolyx. Built for the way you work.</p><p>Private workspaces for every business you own.</p></div></div>
+        <div className="border-t border-white/[0.06]"><div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-muted-foreground sm:px-8 md:flex-row md:justify-between"><p>© {new Date().getFullYear()} Grolyx. Built for the way you work.</p></div></div>
       </footer>
     </div>
   );
 }
+
