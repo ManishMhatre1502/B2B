@@ -70,7 +70,7 @@ export default function HomePage() {
           <div aria-hidden="true" className="absolute -left-48 top-6 -z-10 h-[440px] w-[440px] rounded-full bg-primary/[0.08] blur-[130px]" />
           <div aria-hidden="true" className="absolute -right-32 -top-10 -z-10 h-[560px] w-[560px] rounded-full bg-primary/[0.07] blur-[150px]" />
 
-          <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-16 pt-12 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14 lg:pb-24 lg:pt-20">
+          <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-16 pt-12 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start lg:gap-14 lg:pb-24 lg:pt-16">
             <div className="flex min-w-0 flex-col items-start">
               <div className="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[.08em] text-primary backdrop-blur">
                 <span className="relative flex h-1.5 w-1.5">
@@ -83,7 +83,7 @@ export default function HomePage() {
               <h1
                 id="hero-title"
                 style={{ animationDelay: "60ms" }}
-                className="animate-fade-up mt-6 text-balance text-[clamp(2.6rem,4.9vw,4rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-foreground sm:mt-7"
+                className="animate-fade-up mt-6 text-balance text-[clamp(2.35rem,4vw,3.55rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-foreground sm:mt-7"
               >
                 You Own the Portfolio.
                 <span className="block bg-gradient-to-r from-[#ffe9a3] via-primary to-[#e8b900] bg-clip-text text-transparent">
