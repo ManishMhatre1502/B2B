@@ -8,7 +8,7 @@ const businesses = [
 
 export function HeroIllustration() {
   return (
-    <div aria-hidden="true" className="relative mx-auto w-full min-w-0 max-w-[560px] lg:mx-0 lg:ml-auto lg:max-w-none">
+    <div role="img" aria-label="Portfolio dashboard with three businesses and their plant heads, plus a rising weekly revenue trend of ₹24,680" className="relative mx-auto w-full min-w-0 max-w-[560px] lg:mx-0 lg:ml-auto lg:max-w-none">
       <div className="absolute -inset-8 -z-10 rounded-[48px] bg-[radial-gradient(circle_at_42%_25%,rgba(255,201,0,0.17),transparent_62%)] blur-2xl" />
       <div className="absolute inset-x-10 -bottom-6 -z-10 h-24 rounded-full bg-primary/20 blur-3xl" />
       <div className="absolute -inset-px -z-10 rounded-[27px] bg-[conic-gradient(from_140deg_at_50%_50%,rgba(255,201,0,0.55),transparent_25%,transparent_70%,rgba(255,201,0,0.28))] opacity-50 blur-[3px]" />
@@ -52,6 +52,34 @@ export function HeroIllustration() {
                 </div>
               ))}
             </div>
+
+            <figure className="min-w-0 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3">
+              <figcaption className="flex items-center justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="text-[10px] font-semibold text-foreground">Portfolio revenue</p>
+                  <p className="mt-0.5 text-[9px] text-muted-foreground">Last 7 days · all businesses</p>
+                </div>
+                <div className="shrink-0 text-right">
+                  <p className="text-xs font-semibold text-foreground">₹24,680</p>
+                  <p className="mt-0.5 text-[9px] font-medium text-emerald">↗ 12.8% this week</p>
+                </div>
+              </figcaption>
+              <svg aria-hidden="true" viewBox="0 0 360 108" preserveAspectRatio="none" className="mt-2 block h-auto w-full">
+                <defs>
+                  <linearGradient id="portfolio-revenue-fill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#ffc900" stopOpacity="0.24" />
+                    <stop offset="100%" stopColor="#ffc900" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M4 22H356M4 54H356M4 86H356" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+                <path d="M4 88 C26 82 28 68 54 72 S86 86 110 63 S142 69 166 56 S198 62 222 44 S254 52 278 36 S314 44 338 24 S350 26 356 16 V104 H4 Z" fill="url(#portfolio-revenue-fill)" />
+                <path d="M4 88 C26 82 28 68 54 72 S86 86 110 63 S142 69 166 56 S198 62 222 44 S254 52 278 36 S314 44 338 24 S350 26 356 16" fill="none" stroke="#ffc900" strokeWidth="3" strokeLinecap="round" />
+                <circle cx="278" cy="36" r="4" fill="#ffc900" stroke="#0a0c0f" strokeWidth="2" />
+              </svg>
+              <div className="mt-1 flex justify-between text-[9px] text-muted-foreground" aria-hidden="true">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
+            </figure>
 
             <div className="flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5"><div className="flex items-center gap-2"><span className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald/10 text-emerald"><Activity size={14} /></span><div><p className="text-[10px] font-semibold text-foreground">Today’s portfolio pulse</p><p className="text-[9px] text-muted-foreground">Updates from your plant heads</p></div></div><span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald"><Check size={12} /> 2 of 3 in</span></div>
           </div>

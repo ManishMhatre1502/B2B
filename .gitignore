@@ -8,3 +8,5 @@ coverage
 next-env.d.ts
 .npm-cache
 .tmp
+
+.vercel

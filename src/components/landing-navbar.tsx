@@ -7,8 +7,8 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Platform", href: "#platform" },
-  { label: "How it works", href: "#how-it-works" },
+  { label: "Overview", href: "#hero" },
+  { label: "Security", href: "#security" },
   { label: "Pricing", href: "#pricing" },
 ];
 
@@ -72,9 +72,9 @@ export function LandingNavbar() {
         <Link
           href="/"
           aria-label="Grolyx home"
-          className="flex shrink-0 items-center rounded-md transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex h-11 shrink-0 items-center rounded-md transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <Image src="/grolyx-mark.png" alt="Grolyx" width={64} height={48} priority className="h-10 w-[54px] object-contain lg:h-11 lg:w-[58px]" />
+          <Image src="/logo.png" alt="Grolyx" width={1600} height={533} priority className="h-9 w-[108px] object-contain sm:h-10 sm:w-[120px]" />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
@@ -86,7 +86,7 @@ export function LandingNavbar() {
                 href={href}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
-                  "relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "relative inline-flex min-h-11 items-center rounded-lg px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                   isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
@@ -106,13 +106,13 @@ export function LandingNavbar() {
         <div className="hidden items-center gap-2 md:flex">
           <Link
             href="/login"
-            className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Sign in
           </Link>
           <Link
             href="/register"
-            className="btn-gold group inline-flex h-10 items-center gap-2 rounded-full px-5 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="btn-gold group inline-flex h-11 items-center gap-2 rounded-full px-5 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Get started
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
@@ -125,7 +125,7 @@ export function LandingNavbar() {
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-foreground transition-colors hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-foreground transition-colors hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
         >
           {open ? <X size={19} /> : <Menu size={19} />}
         </button>
@@ -145,7 +145,7 @@ export function LandingNavbar() {
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className="rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/[0.05] hover:text-foreground"
+              className="flex min-h-11 items-center rounded-xl px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/[0.05] hover:text-foreground"
             >
               {label}
             </a>

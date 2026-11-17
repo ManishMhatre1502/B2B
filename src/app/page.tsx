@@ -3,46 +3,11 @@ import Image from "next/image";
 import {
   ArrowRight,
   ArrowUpRight,
-  BarChart3,
-  Building2,
   Check,
-  ClipboardCheck,
-  Layers3,
   ShieldCheck,
 } from "lucide-react";
 import { LandingNavbar } from "@/components/landing-navbar";
 import { HeroIllustration } from "@/components/hero-illustration";
-
-const features = [
-  {
-    icon: Building2,
-    title: "Every business, one view",
-    copy: "Switch between companies and see the signal across your whole portfolio without losing context.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Reporting that fits",
-    copy: "Choose the daily numbers each team should track, from revenue to the metrics only you care about.",
-  },
-  {
-    icon: BarChart3,
-    title: "A clearer daily picture",
-    copy: "Read submission status, trends, and operational notes in one place instead of chasing updates.",
-  },
-];
-
-const steps = [
-  { icon: Layers3, title: "Set up a business", text: "Bring in the context and the metrics that matter." },
-  { icon: ShieldCheck, title: "Appoint a plant head", text: "Give each trusted lead access to the business they run." },
-  { icon: ClipboardCheck, title: "Capture the day", text: "Submit numbers and notes in a few minutes." },
-  { icon: BarChart3, title: "Spot the pattern", text: "Use a shared view to follow up with confidence." },
-];
-
-const assurances = [
-  { label: "Add a business", copy: "Bring each company into one portfolio" },
-  { label: "Assign a plant head", copy: "Put a trusted lead in charge" },
-  { label: "See daily updates", copy: "Stay close without chasing teams" },
-];
 
 const securityPoints = [
   "Owner and head access checked on every request",
@@ -70,7 +35,7 @@ export default function HomePage() {
           <div aria-hidden="true" className="absolute -left-48 top-6 -z-10 h-[440px] w-[440px] rounded-full bg-primary/[0.08] blur-[130px]" />
           <div aria-hidden="true" className="absolute -right-32 -top-10 -z-10 h-[560px] w-[560px] rounded-full bg-primary/[0.07] blur-[150px]" />
 
-          <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-16 pt-12 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start lg:gap-14 lg:pb-24 lg:pt-16">
+          <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-12 pt-8 sm:gap-12 sm:px-8 sm:pb-16 sm:pt-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-start lg:gap-14 lg:pb-24 lg:pt-16">
             <div className="flex min-w-0 flex-col items-start">
               <div className="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[.08em] text-primary backdrop-blur">
                 <span className="relative flex h-1.5 w-1.5">
@@ -83,7 +48,7 @@ export default function HomePage() {
               <h1
                 id="hero-title"
                 style={{ animationDelay: "60ms" }}
-                className="animate-fade-up mt-6 text-balance text-[clamp(2.35rem,4vw,3.55rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-foreground sm:mt-7"
+                className="animate-fade-up mt-6 max-w-[14ch] text-balance text-[clamp(2rem,4.4vw,3.55rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-foreground sm:mt-7 sm:max-w-none sm:text-[clamp(2.35rem,4vw,3.55rem)]"
               >
                 You Own the Portfolio.
                 <span className="block bg-gradient-to-r from-[#ffe9a3] via-primary to-[#e8b900] bg-clip-text text-transparent">
@@ -105,10 +70,10 @@ export default function HomePage() {
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
                 </Link>
                 <Link
-                  href="#platform"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-6 text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-white/20 hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  href="#pricing"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-6 text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-white/20 hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  See how it works
+                View pricing
                 </Link>
               </div>
 
@@ -129,95 +94,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="border-t border-white/[0.06]">
-            <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-white/[0.06] px-5 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-8">
-              {assurances.map(({ label, copy }) => (
-                <div key={label} className="flex items-center gap-3 py-4 sm:justify-center sm:py-5">
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary/80" />
-                  <p className="text-sm">
-                    <span className="font-medium text-foreground">{label}</span>
-                    <span className="text-muted-foreground"> — {copy}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="platform" className="scroll-mt-28 border-t border-white/[0.06]">
-          <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-2xl">
-                <Eyebrow>One operating rhythm</Eyebrow>
-                <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-4xl lg:text-5xl">
-                  The day-to-day, without the chase.
-                </h2>
-              </div>
-              <p className="max-w-sm text-base leading-7 text-muted-foreground">
-                Make the numbers easy to share and the next step easier to see—for every business you run.
-              </p>
-            </div>
-
-            <div className="mt-12 grid gap-3 md:grid-cols-3 lg:mt-14">
-              {features.map(({ icon: Icon, title, copy }, index) => (
-                <article
-                  key={title}
-                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.01))] p-6 transition-colors hover:border-primary/25 sm:p-7"
-                >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                  <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-primary/10 opacity-0 blur-2xl transition-opacity group-hover:opacity-100" />
-                  <div className="relative flex items-start justify-between">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-primary">
-                      <Icon size={21} />
-                    </span>
-                    <span className="text-xs font-medium text-muted-foreground">0{index + 1}</span>
-                  </div>
-                  <h3 className="mt-7 text-xl font-semibold tracking-tight">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{copy}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="how-it-works" className="scroll-mt-28 border-y border-white/[0.06] bg-white/[0.015]">
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:py-28">
-            <div>
-              <Eyebrow>A simpler cadence</Eyebrow>
-              <h2 className="mt-4 max-w-lg text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-4xl lg:text-5xl">
-                A daily habit that scales with you.
-              </h2>
-              <p className="mt-5 max-w-lg text-base leading-7 text-muted-foreground">
-                Set the measures for each business. Appoint the people closest to the work. See each update land in one
-                shared picture.
-              </p>
-              <Link
-                href="/register"
-                className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary"
-              >
-                Build your workspace
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              {steps.map(({ icon: Icon, title, text }, index) => (
-                <div
-                  key={title}
-                  className="group rounded-2xl border border-white/10 bg-background/60 p-5 transition-colors hover:border-primary/20 hover:bg-background/80"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-primary transition-colors group-hover:border-primary/20 group-hover:bg-primary/10">
-                      <Icon size={18} />
-                    </span>
-                    <span className="text-xs text-muted-foreground">0{index + 1}</span>
-                  </div>
-                  <h3 className="mt-5 font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
 
         <section id="security" className="scroll-mt-28">
@@ -251,13 +127,6 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="/register"
-                    className="btn-gold group mt-2 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
-                  >
-                    Create your workspace
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-                  </Link>
                 </div>
               </div>
             </div>
@@ -285,9 +154,9 @@ export default function HomePage() {
 
       <footer className="border-t border-white/[0.06] bg-white/[0.015]">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-8 lg:py-16">
-          <div><Image src="/grolyx-mark.png" alt="Grolyx" width={64} height={48} className="h-12 w-16 object-contain" /><p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground">Your businesses. Your control. One private workspace for the work you own.</p></div>
-          <div><h2 className="text-sm font-semibold">Explore</h2><ul className="mt-4 space-y-3 text-sm text-muted-foreground"><li><Link href="#platform" className="hover:text-foreground">Platform</Link></li><li><Link href="#how-it-works" className="hover:text-foreground">How it works</Link></li><li><Link href="#pricing" className="hover:text-foreground">Pricing</Link></li></ul></div>
-          <div><h2 className="text-sm font-semibold">Account &amp; legal</h2><ul className="mt-4 space-y-3 text-sm text-muted-foreground"><li><Link href="/login" className="hover:text-foreground">Sign in</Link></li><li><Link href="/register" className="hover:text-foreground">Create account</Link></li><li><Link href="/privacy" className="hover:text-foreground">Privacy</Link></li><li><Link href="/terms" className="hover:text-foreground">Terms</Link></li></ul></div>
+          <div><Image src="/logo.png" alt="Grolyx" width={1600} height={533} className="h-10 w-[120px] object-contain" /><p className="mt-3 max-w-xs text-sm leading-6 text-muted-foreground">Your businesses. Your control. One private workspace for the work you own.</p></div>
+          <div><h2 className="text-sm font-semibold">Explore</h2><ul className="mt-4 space-y-1 text-sm text-muted-foreground"><li><Link href="#hero" className="inline-flex min-h-11 items-center hover:text-foreground">Portfolio overview</Link></li><li><Link href="#security" className="inline-flex min-h-11 items-center hover:text-foreground">Security</Link></li><li><Link href="#pricing" className="inline-flex min-h-11 items-center hover:text-foreground">Pricing</Link></li></ul></div>
+          <div><h2 className="text-sm font-semibold">Account &amp; legal</h2><ul className="mt-4 space-y-1 text-sm text-muted-foreground"><li><Link href="/login" className="inline-flex min-h-11 items-center hover:text-foreground">Sign in</Link></li><li><Link href="/register" className="inline-flex min-h-11 items-center hover:text-foreground">Create account</Link></li><li><Link href="/privacy" className="inline-flex min-h-11 items-center hover:text-foreground">Privacy</Link></li><li><Link href="/terms" className="inline-flex min-h-11 items-center hover:text-foreground">Terms</Link></li></ul></div>
           <div><h2 className="text-sm font-semibold">Contact us</h2><p className="mt-4 text-sm leading-6 text-muted-foreground">Questions about your workspace or getting started?</p><a href="mailto:support@grolyx.com" className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">support@grolyx.com <ArrowUpRight size={14} /></a></div>
         </div>
         <div className="border-t border-white/[0.06]"><div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-muted-foreground sm:px-8 md:flex-row md:justify-between"><p>© {new Date().getFullYear()} Grolyx. Built for the way you work.</p><p>Private workspaces for every business you own.</p></div></div>
